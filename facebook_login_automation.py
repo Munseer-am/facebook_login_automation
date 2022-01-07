@@ -1,36 +1,27 @@
 from time import sleep
-import hashlib
 from selenium import webdriver
 
 
-p = '8e00596ad8de2213ff8f8d8478d5362c'
+browser = webdriver.Chrome('c:/python/chromedriver.exe')
 
-i = str(input("Enter password: "))
-enc = hashlib.md5(i.encode()).hexdigest()
-if p != enc:
-    quit()
-else:
+browser.get('https://facebook.com')
 
-    browser = webdriver.Chrome('c:/python/chromedriver.exe')
+sleep(2)
+user = browser.find_element_by_id('email')
+#user.click()
 
-    browser.get('https://facebook.com')
+user.send_keys('Your Email Here')
 
-    sleep(2)
-    user = browser.find_element_by_id('email')
-    #user.click()
+pas = browser.find_element_by_xpath('//*[@id="pass"]')
+#pas.click()
 
-    user.send_keys('Your Email Here')
+pas.send_keys('Your Password Here')
 
-    pas = browser.find_element_by_xpath('//*[@id="pass"]')
-    #pas.click()
+sleep(2)
 
-    pas.send_keys('Your Password Here')
+button = browser.find_element_by_name('login')
+button.click()
 
-    sleep(2)
-
-    button = browser.find_element_by_name('login')
-    button.click()
-
-    search = browser.find_element_by_xpath('//*[@id="mount_0_0_JI"]')
-    search.click()
-    search.send_keys('Mujeeb Arangath')
+search = browser.find_element_by_xpath('//*[@id="mount_0_0_JI"]')
+search.click()
+search.send_keys('Mujeeb Arangath')
