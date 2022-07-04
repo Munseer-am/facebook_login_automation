@@ -1,3 +1,3 @@
 # facebook_login_automation
 > This script may not as this script is written with old selenium. Newier version of selenium does not support the functions
-> I try to update script ASAP.
+> I will try to update script ASAP.
